@@ -1,0 +1,24 @@
+server:
+  port: 5003
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: path_route
+          #uri: http://localhost:7002
+          uri: lb://EUREKA-PROVIDER-7001
+          predicates:
+            - Path=/aaa/provider/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://long:6666@eureka-server-8001:8001/eureka/,http://long:6666@eureka-server-8002:8002/eureka/,http://long:6666@eureka-server-8003:8003/eureka/
+  instance:
+    instance-id: eureka-gateway-5003
+
+
+

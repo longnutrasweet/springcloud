@@ -1,0 +1,26 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: eureka-server-8001
+eureka:
+
+  instance:
+    preferIpAddress: true
+    lease-expiration-duration-in-seconds: 90 #非正常下线剔除服务的时间
+    ip-address: 127.0.0.1 #只是修改instanceinfo ipAddr
+    home-page-url: http://${eureka.instance.hostname}:${server.port}/eureka
+    instance-id: eureka-server-8001
+    hostname: eureka-server-8001
+
+  client:
+    register-with-eureka: false  #不把自己作为客户端注册到eureka
+    fetch-registry: false  #从Eureka server获取注册信息并缓存到本地，之后只会增量获取信息
+    service-url:
+      defaultZone: http://long:6666@eureka-server-8002:8002/eureka/,http://long:6666@eureka-server-8003:8003/eureka/ #serviceUrl指向与本地实例相同的主机。注册中心地址,集群配置相互复制注册
+
+  server:
+    enable-self-preservation: true #自我保护默认开启
+
+
