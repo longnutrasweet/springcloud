@@ -3,13 +3,17 @@ spring:
         active: dev
            
 ---
+server:
+    port:4001
 spring:
     profiles: dev
     application: 
-        name: dev-application
+        name: dev-config-client
 
 ---
+server:
+    port:4002
 spring:
     profiles: test
     application: 
-        name: test-application
+        name: test-config-client
