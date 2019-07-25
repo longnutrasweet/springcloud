@@ -1,0 +1,14 @@
+server:
+  port: 4001
+
+spring:
+  application:
+    name: config-server-4001
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/longnutrasweet/springcloud.git
+          search-paths: /config
+  profiles:
+    active: dev

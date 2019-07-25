@@ -25,12 +25,13 @@
         <module>eureka-hystrixdashboard-5001</module>
         <module>eureka-zuul-5002</module>
         <module>eureka-gateway-5003</module>
-        <module>eureka-config-5004</module>
+        <module>config-server-4001</module>
+        <module>config-client-4002</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.13.RELEASE</version>
+        <version>2.1.6.RELEASE</version>
     </parent>
 </project>
